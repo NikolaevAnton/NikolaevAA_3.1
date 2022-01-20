@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            Color.black
+                .ignoresSafeArea()
+            VStack {
+                CircleColor(color: .red)
+                CircleColor(color: .yellow)
+                CircleColor(color: .green)
+                Spacer()
+                ButtonCustom()
+            }
+        }
+        
+        
     }
 }
 
