@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct ButtonCustom: View {
+    
+    @State var buttonTitle: String
+    var action: ()-> Void
+    
     var body: some View {
         ZStack {
             Color(UIColor.blue)
                 .frame(width: 200, height: 100)
-            .cornerRadius(20)
-            Button("START") {
-                
+                .overlay(Rectangle().stroke(Color.white, lineWidth: 10))
+                .shadow(radius: 80)
+            .cornerRadius(30)
+            Button(action: {
+                buttonTitle = "NEXT"
+                action()
+            }) {
+                Text(buttonTitle)
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
+                    .padding(.all, 25.0)
             }
         }
     }
@@ -22,6 +34,6 @@ struct ButtonCustom: View {
 
 struct ButtonCustom_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonCustom()
+        ButtonCustom(buttonTitle: "START", action: {})
     }
 }
