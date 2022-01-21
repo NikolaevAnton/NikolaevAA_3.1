@@ -14,11 +14,11 @@ struct ButtonCustom: View {
     
     var body: some View {
         ZStack {
-            Color(UIColor.blue)
+            Rectangle().stroke(Color.white, lineWidth: 15)
                 .frame(width: 200, height: 100)
-                .overlay(Rectangle().stroke(Color.white, lineWidth: 10))
-                .shadow(radius: 80)
-            .cornerRadius(30)
+                .cornerRadius(10)
+            Color(UIColor.blue)
+                .frame(width: 190, height: 90)
             Button(action: {
                 buttonTitle = "NEXT"
                 action()
